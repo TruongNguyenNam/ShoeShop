@@ -1,6 +1,6 @@
 package com.example.back_end.controller;
 
-import com.example.back_end.dto.response.InventoryResponse;
+import com.example.back_end.dto.admin.response.InventoryResponse;
 import com.example.back_end.service.admin.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

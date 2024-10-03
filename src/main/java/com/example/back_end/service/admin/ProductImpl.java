@@ -1,17 +1,15 @@
 package com.example.back_end.service.admin;
 
-import com.example.back_end.dto.request.ProductRequest;
-import com.example.back_end.dto.request.ProductSearchRequest;
-import com.example.back_end.dto.response.InventoryResponse;
-import com.example.back_end.dto.response.ProductResponse;
-import com.example.back_end.dto.response.ProductSearchResponse;
-import com.example.back_end.dto.response.ProductSupplierResponse;
+import com.example.back_end.dto.admin.request.ProductRequest;
+import com.example.back_end.dto.admin.request.ProductSearchRequest;
+import com.example.back_end.dto.admin.response.InventoryResponse;
+import com.example.back_end.dto.admin.response.ProductResponse;
+import com.example.back_end.dto.admin.response.ProductSearchResponse;
+import com.example.back_end.dto.admin.response.ProductSupplierResponse;
 import com.example.back_end.entity.*;
 import com.example.back_end.exception.AppException;
 import com.example.back_end.repository.*;
-import com.example.back_end.service.admin.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -80,7 +78,7 @@ public class ProductImpl implements ProductService {
             for (Integer imageUrl : productRequest.getImageIds()) {
                 ProductImage image = productImageRepository.findById(imageUrl)
                         .orElseThrow(() -> new AppException("Image not found"));
-                image.setProduct(savedProduct);
+                image.setProduct(savedProduct); ///
                 productImageRepository.save(image);
             }
         }

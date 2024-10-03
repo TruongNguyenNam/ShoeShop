@@ -1,6 +1,6 @@
 package com.example.back_end.controller;
 
-import com.example.back_end.dto.response.ColorResponse;
+import com.example.back_end.dto.admin.response.ColorResponse;
 import com.example.back_end.service.admin.ColorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

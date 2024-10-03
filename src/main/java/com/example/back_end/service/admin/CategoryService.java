@@ -1,7 +1,7 @@
 package com.example.back_end.service.admin;
 
-import com.example.back_end.dto.request.CategoryRequest;
-import com.example.back_end.dto.response.CategoryResponse;
+import com.example.back_end.dto.admin.request.CategoryRequest;
+import com.example.back_end.dto.admin.response.CategoryResponse;
 
 import java.util.List;
 

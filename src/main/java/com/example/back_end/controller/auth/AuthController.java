@@ -6,15 +6,11 @@ import com.example.back_end.dto.authDTO.LoginInfoDto;
 import com.example.back_end.dto.authDTO.RegisterForm;
 import com.example.back_end.dto.authDTO.TokenDTO;
 import com.example.back_end.dto.authDTO.loginForm;
-import com.example.back_end.dto.request.UserRequest;
-import com.example.back_end.dto.response.UserResponse;
-import com.example.back_end.entity.User;
-import com.example.back_end.repository.UserRepository;
+import com.example.back_end.dto.admin.response.UserResponse;
 import com.example.back_end.service.authention.IAuthService;
 import com.example.back_end.service.authention.IJWTTokenService;
 import com.example.back_end.validation.RefreshTokenValid;
 import jakarta.validation.Valid;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +19,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

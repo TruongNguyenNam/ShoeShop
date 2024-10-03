@@ -1,15 +1,12 @@
 package com.example.back_end.service.admin;
 
-import com.example.back_end.dto.request.CategoryRequest;
-import com.example.back_end.dto.response.CategoryResponse;
-import com.example.back_end.dto.response.ProductImageResponse;
-import com.example.back_end.dto.response.ProductResponse;
+import com.example.back_end.dto.admin.request.CategoryRequest;
+import com.example.back_end.dto.admin.response.CategoryResponse;
+import com.example.back_end.dto.admin.response.ProductResponse;
 import com.example.back_end.entity.Category;
 import com.example.back_end.entity.Product;
 import com.example.back_end.exception.AppException;
 import com.example.back_end.repository.CategoryRepository;
-import com.example.back_end.repository.ProductRepository;
-import com.example.back_end.service.admin.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -21,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@Transactional
+@Transactional //
 public class CategoryImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
 

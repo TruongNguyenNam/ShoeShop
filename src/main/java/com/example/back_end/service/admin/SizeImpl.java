@@ -1,6 +1,6 @@
 package com.example.back_end.service.admin;
 
-import com.example.back_end.dto.response.SizeResponse;
+import com.example.back_end.dto.admin.response.SizeResponse;
 import com.example.back_end.entity.Size;
 import com.example.back_end.exception.AppException;
 import com.example.back_end.repository.SizeRepository;

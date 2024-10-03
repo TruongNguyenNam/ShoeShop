@@ -1,12 +1,11 @@
 package com.example.back_end.controller;
 
-import com.example.back_end.dto.request.CategoryRequest;
-import com.example.back_end.dto.response.CategoryResponse;
+import com.example.back_end.dto.admin.request.CategoryRequest;
+import com.example.back_end.dto.admin.response.CategoryResponse;
 import com.example.back_end.service.admin.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/admin/category")
-@CrossOrigin
 public class CategoryController {
 
     private final CategoryService categoryService;

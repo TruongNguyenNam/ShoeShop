@@ -1,7 +1,6 @@
 package com.example.back_end.service.admin;
 
-import com.example.back_end.dto.response.ProductImageResponse;
-import com.example.back_end.dto.response.ProductResponse;
+import com.example.back_end.dto.admin.response.ProductImageResponse;
 import com.example.back_end.entity.Product;
 import com.example.back_end.entity.ProductImage;
 import com.example.back_end.repository.ProductImageRepository;
@@ -15,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductImageImpl implements ProductImageService{
@@ -59,14 +59,14 @@ public class ProductImageImpl implements ProductImageService{
             }
         }
 
+
+
         return imageIds;
     }
 
     @Override
     public List<Integer> saveProductImage(List<MultipartFile> images) {
-        List<Integer> imageIds = new ArrayList<>();
-
-        for (MultipartFile image : images) {
+        return images.stream().map(image -> {
             try {
                 // Tải ảnh lên Cloudinary
                 Map<String, Object> uploadResult = cloudinaryService.uploadFile(image, "product_images");
@@ -81,16 +81,18 @@ public class ProductImageImpl implements ProductImageService{
                 // Lưu vào CSDL
                 ProductImage savedImage = productImageRepository.save(productImage);
 
-                // Thêm ID ảnh vào danh sách trả về
-                imageIds.add(savedImage.getId());
+                // Trả về ID ảnh đã lưu
+                return savedImage.getId();
             } catch (IOException e) {
                 e.printStackTrace();
-                // Xử lý lỗi tải lên hoặc lưu ảnh
+                // Xử lý lỗi tải lên hoặc lưu ảnh và trả về null hoặc giá trị mặc định
+                return null;
             }
-        }
-
-        return imageIds;
+        }).collect(Collectors.toList());
+        //filter(Objects::nonNull).toList();
+        // Loại bỏ null trong danh sách kết quả
     }
+
 
     @Override
     public ProductImageResponse getPictureById(Integer id) {

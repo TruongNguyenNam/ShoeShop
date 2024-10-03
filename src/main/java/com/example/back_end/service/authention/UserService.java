@@ -1,8 +1,8 @@
 package com.example.back_end.service.authention;
 
 
-import com.example.back_end.dto.request.UserRequest;
-import com.example.back_end.dto.response.UserResponse;
+import com.example.back_end.dto.admin.request.UserRequest;
+import com.example.back_end.dto.admin.response.UserResponse;
 import com.example.back_end.entity.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 

@@ -1,6 +1,6 @@
 package com.example.back_end.controller;
 
-import com.example.back_end.dto.response.ProductImageResponse;
+import com.example.back_end.dto.admin.response.ProductImageResponse;
 import com.example.back_end.exception.AppException;
 import com.example.back_end.service.admin.ProductImageService;
 import org.springframework.beans.factory.annotation.Autowired;

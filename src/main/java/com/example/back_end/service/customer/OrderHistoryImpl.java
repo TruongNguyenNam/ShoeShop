@@ -32,8 +32,8 @@ public class OrderHistoryImpl implements OrderHistoryService{
 
     private OrderHistoryResponse mapToResponse(Order order) {
         // Lấy thông tin vận chuyển dựa vào orderId
-        Shipping shipping = shippingRepository.findByOrderId(order.getId())
-                .orElseThrow(() -> new AppException("Shipping information not found for order ID: " + order.getId()));
+//        Shipping shipping = shippingRepository.findByOrderId(order.getId())
+//                .orElseThrow(() -> new AppException("Shipping information not found for order ID: " + order.getId()));
 
         // Tạo đối tượng phản hồi với dữ liệu cần thiết
         OrderHistoryResponse response = new OrderHistoryResponse();
@@ -41,9 +41,9 @@ public class OrderHistoryImpl implements OrderHistoryService{
         response.setOrderDate(order.getOrderDate());
         response.setTotalAmount(order.getTotalAmount());
         response.setStatus(String.valueOf(order.getStatus()));
-        response.setShippingMethod(shipping.getShippingMethod().getName());
-        response.setTrackingNumber(shipping.getTrackingNumber());
-        response.setShippingStatus(String.valueOf(shipping.getStatus()));
+//        response.setShippingMethod(shipping.getShippingMethod().getName());
+//        response.setTrackingNumber(shipping.getTrackingNumber());
+//        response.setShippingStatus(String.valueOf(shipping.getStatus()));
 
         return response;
     }

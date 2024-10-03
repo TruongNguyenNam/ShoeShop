@@ -1,12 +1,11 @@
 package com.example.back_end.service.admin;
 
-import com.example.back_end.dto.response.SupplierResponse;
+import com.example.back_end.dto.admin.response.SupplierResponse;
 import com.example.back_end.entity.Supplier;
 import com.example.back_end.exception.AppException;
 import com.example.back_end.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;

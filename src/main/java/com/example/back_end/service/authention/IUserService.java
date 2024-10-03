@@ -1,11 +1,10 @@
 package com.example.back_end.service.authention;
 
-import com.example.back_end.dto.request.UserRequest;
-import com.example.back_end.dto.response.UserResponse;
+import com.example.back_end.dto.admin.request.UserRequest;
+import com.example.back_end.dto.admin.response.UserResponse;
 import com.example.back_end.entity.User;
 import com.example.back_end.exception.AppException;
 import com.example.back_end.repository.UserRepository;
-import com.example.back_end.service.authention.UserService;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

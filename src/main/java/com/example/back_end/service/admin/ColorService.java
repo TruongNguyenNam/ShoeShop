@@ -1,6 +1,6 @@
 package com.example.back_end.service.admin;
 
-import com.example.back_end.dto.response.ColorResponse;
+import com.example.back_end.dto.admin.response.ColorResponse;
 
 import java.util.List;
 

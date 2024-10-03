@@ -1,8 +1,8 @@
 package com.example.back_end.controller;
 
-import com.example.back_end.dto.request.ProductRequest;
-import com.example.back_end.dto.response.ProductResponse;
-import com.example.back_end.dto.response.ProductSearchResponse;
+import com.example.back_end.dto.admin.request.ProductRequest;
+import com.example.back_end.dto.admin.response.ProductResponse;
+import com.example.back_end.dto.admin.response.ProductSearchResponse;
 import com.example.back_end.service.admin.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

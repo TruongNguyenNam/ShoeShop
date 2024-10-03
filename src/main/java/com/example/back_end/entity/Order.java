@@ -45,6 +45,9 @@ public class Order extends BaseEntity{
     private List<Shipping> shippings;
 
     @OneToMany(mappedBy = "order")
+    private List<Transaction> transactions;
+
+    @OneToMany(mappedBy = "order")
     private List<Return> returns;
     @NoArgsConstructor
     @Getter

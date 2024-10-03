@@ -1,6 +1,6 @@
 package com.example.back_end.service.admin;
 
-import com.example.back_end.dto.response.InventoryResponse;
+import com.example.back_end.dto.admin.response.InventoryResponse;
 import com.example.back_end.entity.Inventory;
 import com.example.back_end.exception.AppException;
 import com.example.back_end.repository.InventoryRepository;

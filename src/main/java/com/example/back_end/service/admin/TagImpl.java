@@ -1,7 +1,6 @@
 package com.example.back_end.service.admin;
 
-import com.example.back_end.dto.response.TagResponse;
-import com.example.back_end.entity.ProductTag;
+import com.example.back_end.dto.admin.response.TagResponse;
 import com.example.back_end.entity.Tag;
 import com.example.back_end.exception.AppException;
 import com.example.back_end.repository.TagRepository;

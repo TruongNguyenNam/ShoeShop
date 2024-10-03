@@ -1,7 +1,6 @@
 package com.example.back_end.service.admin;
 
-import com.example.back_end.dto.response.BrandResponse;
-import com.example.back_end.entity.Brand;
+import com.example.back_end.dto.admin.response.BrandResponse;
 
 import java.util.List;
 

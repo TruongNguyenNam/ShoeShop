@@ -19,7 +19,7 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/{userId}")
-    public ResponseEntity<OrderResponse> placeOrder(@PathVariable int userId, @RequestBody OrderRequest request) {
+    public ResponseEntity<OrderResponse> placeOrder(@PathVariable Integer userId, @RequestBody OrderRequest request) {
         OrderResponse orderResponse = orderService.placeOrder(userId, request);
         return new ResponseEntity<>(orderResponse, HttpStatus.CREATED);
     }

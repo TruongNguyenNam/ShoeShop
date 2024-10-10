@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ColorImpl implements ColorService{
+public class ColorServiceImpl implements ColorService{
     private final ColorRepository colorRepository;
     @Autowired
-    public ColorImpl(ColorRepository colorRepository) {
+    public ColorServiceImpl(ColorRepository colorRepository) {
         this.colorRepository = colorRepository;
     }
 

@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class TransactionImpl implements TransactionService {
+public class TransactionServiceImpl implements TransactionService {
 
     @Autowired
     private TransactionRepository transactionRepository;

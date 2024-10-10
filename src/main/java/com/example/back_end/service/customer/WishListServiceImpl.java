@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class WishListImpl implements WishListService{
+public class WishListServiceImpl implements WishListService{
     @Autowired
     private WishlistRepository wishlistRepository;
 

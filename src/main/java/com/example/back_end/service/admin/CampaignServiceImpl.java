@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class CampaignImpl implements CampaignService{
+public class CampaignServiceImpl implements CampaignService{
     private final CampaignRepository campaignRepository;
     @Autowired
-    public CampaignImpl(CampaignRepository campaignRepository) {
+    public CampaignServiceImpl(CampaignRepository campaignRepository) {
         this.campaignRepository = campaignRepository;
     }
 

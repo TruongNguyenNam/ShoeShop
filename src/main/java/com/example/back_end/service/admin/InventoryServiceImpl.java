@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class InventoryImpl implements InventoryService{
+public class InventoryServiceImpl implements InventoryService{
     private final InventoryRepository inventoryRepository;
 
     @Autowired
-    public InventoryImpl(InventoryRepository inventoryRepository) {
+    public InventoryServiceImpl(InventoryRepository inventoryRepository) {
         this.inventoryRepository = inventoryRepository;
     }
 

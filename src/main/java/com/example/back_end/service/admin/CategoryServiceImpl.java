@@ -19,13 +19,13 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional //
-public class CategoryImpl implements CategoryService {
+public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
 
 //    @Autowired
 //    private ProductRepository productRepository;
     @Autowired
-    public CategoryImpl(CategoryRepository categoryRepository) {
+    public CategoryServiceImpl(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 

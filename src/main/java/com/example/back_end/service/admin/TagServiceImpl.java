@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class TagImpl implements TagService{
+public class TagServiceImpl implements TagService{
     private final TagRepository tagRepository;
     @Autowired
-    public TagImpl(TagRepository tagRepository) {
+    public TagServiceImpl(TagRepository tagRepository) {
         this.tagRepository = tagRepository;
     }
 

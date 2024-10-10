@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ReturnImpl implements ReturnService{
+public class ReturnServiceImpl implements ReturnService{
     private final ReturnRepository returnRepository;
     private final ReturnDetailRepository returnDetailRepository;
 
@@ -32,7 +32,7 @@ public class ReturnImpl implements ReturnService{
     private final OrderRepository orderRepository;
 
     @Autowired
-    public ReturnImpl(ReturnRepository returnRepository, ReturnDetailRepository returnDetailRepository, ProductRepository productRepository, OrderRepository orderRepository) {
+    public ReturnServiceImpl(ReturnRepository returnRepository, ReturnDetailRepository returnDetailRepository, ProductRepository productRepository, OrderRepository orderRepository) {
         this.returnRepository = returnRepository;
         this.returnDetailRepository = returnDetailRepository;
         this.productRepository = productRepository;

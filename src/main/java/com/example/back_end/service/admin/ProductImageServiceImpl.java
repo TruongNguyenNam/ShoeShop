@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-public class ProductImageImpl implements ProductImageService{
+public class ProductImageServiceImpl implements ProductImageService{
     @Autowired
     private CloudinaryService cloudinaryService;
 

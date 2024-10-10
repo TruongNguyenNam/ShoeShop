@@ -17,7 +17,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class CartImpl implements CartService{
+public class CartServiceImpl implements CartService{
     @Autowired
     private ProductRepository productRepository;
 

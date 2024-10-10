@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ProductTagImpl implements ProductTagService{
+public class ProductTagServiceImpl implements ProductTagService{
 
     @Autowired
     private ProductTagRepository productTagRepository;

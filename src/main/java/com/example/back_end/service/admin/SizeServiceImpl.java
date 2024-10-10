@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class SizeImpl implements SizeService{
+public class SizeServiceImpl implements SizeService{
 
     @Autowired
     private SizeRepository sizeRepository;

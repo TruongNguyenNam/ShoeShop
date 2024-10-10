@@ -1,10 +1,6 @@
 package com.example.back_end.service.customer;
 
-import com.example.back_end.dto.customer.request.ReturnDetailRequest;
-import com.example.back_end.dto.customer.request.ReturnRequest;
 import com.example.back_end.dto.customer.request.ReviewRequest;
-import com.example.back_end.dto.customer.response.ReturnDetailResponse;
-import com.example.back_end.dto.customer.response.ReturnResponse;
 import com.example.back_end.dto.customer.response.ReviewResponse;
 import com.example.back_end.entity.*;
 import com.example.back_end.exception.AppException;
@@ -13,15 +9,13 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 
 @Service
 @Transactional
-public class ReviewImpl implements ReviewService {
+public class ReviewServiceImpl implements ReviewService {
     private final ReviewRepository reviewRepository;
 
     private final ProductRepository productRepository;
@@ -29,7 +23,7 @@ public class ReviewImpl implements ReviewService {
     private final UserRepository userRepository;
 
     @Autowired
-    public ReviewImpl(ReviewRepository reviewRepository, ProductRepository productRepository, UserRepository userRepository) {
+    public ReviewServiceImpl(ReviewRepository reviewRepository, ProductRepository productRepository, UserRepository userRepository) {
         this.reviewRepository = reviewRepository;
         this.productRepository = productRepository;
         this.userRepository = userRepository;

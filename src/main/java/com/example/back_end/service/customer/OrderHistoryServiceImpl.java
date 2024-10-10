@@ -6,7 +6,6 @@ import com.example.back_end.dto.customer.response.ShippingResponse;
 import com.example.back_end.entity.Order;
 import com.example.back_end.entity.OrderDetail;
 import com.example.back_end.entity.Shipping;
-import com.example.back_end.exception.AppException;
 import com.example.back_end.repository.OrderDetailRepository;
 import com.example.back_end.repository.OrderRepository;
 import com.example.back_end.repository.ShippingRepository;
@@ -15,10 +14,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
-public class OrderHistoryImpl implements OrderHistoryService{
+public class OrderHistoryServiceImpl implements OrderHistoryService{
 
     @Autowired
     private OrderRepository orderRepository;

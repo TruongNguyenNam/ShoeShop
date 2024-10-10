@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class BrandImpl implements BrandService {
+public class BrandServiceImpl implements BrandService {
     private final BrandRepository brandRepository;
 
     @Autowired
-    public BrandImpl(BrandRepository brandRepository) {
+    public BrandServiceImpl(BrandRepository brandRepository) {
         this.brandRepository = brandRepository;
     }
 

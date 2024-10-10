@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class ProductImpl implements ProductService {
+public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
     private final BrandRepository brandRepository;
@@ -33,11 +33,11 @@ public class ProductImpl implements ProductService {
     private final SupplierRepository supplierRepository;
 
     @Autowired
-    public ProductImpl(ProductRepository productRepository, CategoryRepository categoryRepository,
-                          BrandRepository brandRepository, SizeRepository sizeRepository,
-                          ColorRepository colorRepository, ProductImageRepository productImageRepository,
-                          InventoryRepository inventoryRepository, ProductSupplierRepository productSupplierRepository,
-                          ProductTagRepository productTagRepository, TagRepository tagRepository,SupplierRepository supplierRepository) {
+    public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository,
+                              BrandRepository brandRepository, SizeRepository sizeRepository,
+                              ColorRepository colorRepository, ProductImageRepository productImageRepository,
+                              InventoryRepository inventoryRepository, ProductSupplierRepository productSupplierRepository,
+                              ProductTagRepository productTagRepository, TagRepository tagRepository, SupplierRepository supplierRepository) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
         this.brandRepository = brandRepository;

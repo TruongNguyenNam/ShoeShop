@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class SupplierImpl implements SupplierService{
+public class SupplierServiceImpl implements SupplierService{
         private final SupplierRepository supplierRepository;
     @Autowired
-    public SupplierImpl(SupplierRepository supplierRepository) {
+    public SupplierServiceImpl(SupplierRepository supplierRepository) {
         this.supplierRepository = supplierRepository;
     }
 

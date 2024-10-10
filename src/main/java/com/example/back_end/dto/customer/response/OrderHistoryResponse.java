@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -12,7 +13,7 @@ public class OrderHistoryResponse {
     private Date orderDate;
     private Double totalAmount;
     private String status;
-    private String shippingMethod;
-    private String trackingNumber;
-    private String shippingStatus;
+    private String paymentMethod;
+    private List<OrderDetailResponse> orderDetails;
+    private List<ShippingResponse> shippings;
 }

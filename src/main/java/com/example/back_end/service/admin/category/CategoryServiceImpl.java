@@ -1,4 +1,4 @@
-package com.example.back_end.service.admin;
+package com.example.back_end.service.admin.category;
 
 import com.example.back_end.dto.admin.request.CategoryRequest;
 import com.example.back_end.dto.admin.response.CategoryResponse;

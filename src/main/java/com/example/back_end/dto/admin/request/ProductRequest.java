@@ -11,8 +11,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class ProductRequest {
-    //@NotNull(message = "đã có tên")
-    @NotBlank(message = "tên đã có xong")
     private String name;
     private String description;
     private Double price;
@@ -21,7 +19,6 @@ public class ProductRequest {
     private Integer brandId;
     private Integer sizeId;
     private Integer colorId;
-   // @NotEmpty(message = "imagesIds is not null")
     private List<Integer> imageIds; // List of image IDs
     private List<Integer> tagIds; // List of tag IDs
     private List<Integer> campaignIds; // List of campaign IDs

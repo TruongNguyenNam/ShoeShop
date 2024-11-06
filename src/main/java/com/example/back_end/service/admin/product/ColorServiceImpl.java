@@ -1,4 +1,4 @@
-package com.example.back_end.service.admin;
+package com.example.back_end.service.admin.product;
 
 import com.example.back_end.dto.admin.response.ColorResponse;
 import com.example.back_end.entity.Color;

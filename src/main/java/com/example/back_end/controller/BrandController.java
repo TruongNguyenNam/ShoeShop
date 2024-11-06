@@ -1,7 +1,7 @@
 package com.example.back_end.controller;
 
 import com.example.back_end.dto.admin.response.BrandResponse;
-import com.example.back_end.service.admin.BrandService;
+import com.example.back_end.service.admin.product.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

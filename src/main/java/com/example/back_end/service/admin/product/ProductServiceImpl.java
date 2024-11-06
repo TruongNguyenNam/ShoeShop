@@ -1,4 +1,4 @@
-package com.example.back_end.service.admin;
+package com.example.back_end.service.admin.product;
 
 import com.example.back_end.dto.admin.request.ProductRequest;
 import com.example.back_end.dto.admin.request.ProductSearchRequest;
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class ProductServiceImpl implements ProductService {
-    private final ProductRepository productRepository;
+    private  final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
     private final BrandRepository brandRepository;
     private final SizeRepository sizeRepository;
@@ -51,16 +51,13 @@ public class ProductServiceImpl implements ProductService {
         this.supplierRepository = supplierRepository;
     }
 
-    // Thêm sản phẩm mới
     public ProductResponse addProduct(ProductRequest productRequest) {
         Product product = new Product();
-        // Set thông tin sản phẩm từ request
         product.setName(productRequest.getName());
         product.setPrice(productRequest.getPrice());
         product.setDescription(productRequest.getDescription());
         product.setStock(productRequest.getStock());
 
-        // Set các thuộc tính khác như Category, Brand, Size, Color
         product.setCategory(categoryRepository.findById(productRequest.getCategoryId())
                 .orElseThrow(() -> new AppException("Category not found")));
         product.setBrand(brandRepository.findById(productRequest.getBrandId())
@@ -70,10 +67,8 @@ public class ProductServiceImpl implements ProductService {
         product.setColor(colorRepository.findById(productRequest.getColorId())
                 .orElseThrow(() -> new AppException("Color not found")));
 
-        // Lưu sản phẩm vào database
         Product savedProduct = productRepository.save(product); // lưu vài database trc
 
-        // Lưu hình ảnh sản phẩm
         if (productRequest.getImageIds() != null && !productRequest.getImageIds().isEmpty()) {
             for (Integer imageUrl : productRequest.getImageIds()) {
                 ProductImage image = productImageRepository.findById(imageUrl)
@@ -84,7 +79,6 @@ public class ProductServiceImpl implements ProductService {
         }
 
 
-        // Lưu thông tin nhà cung cấp
         if (productRequest.getSupplierIds() != null && !productRequest.getSupplierIds().isEmpty()) {
             for (Integer supplierId : productRequest.getSupplierIds()) {
                 Supplier supplier = supplierRepository.findById(supplierId)
@@ -97,7 +91,6 @@ public class ProductServiceImpl implements ProductService {
             }
         }
 
-        // Lưu thông tin tag sản phẩm (ProductTag)
         if (productRequest.getTagIds() != null && !productRequest.getTagIds().isEmpty()) {
             for (Integer tagId : productRequest.getTagIds()) {
                 Tag tag = tagRepository.findById(tagId)
@@ -110,17 +103,14 @@ public class ProductServiceImpl implements ProductService {
         }
 
 
-        // Cập nhật thông tin tồn kho
-        // Lưu hoặc cập nhật thông tin tồn kho
         Inventory inventory = inventoryRepository.findByProductId(savedProduct.getId())
-                .orElse(new Inventory()); // Tìm tồn kho, nếu không tìm thấy thì tạo mới
+                .orElse(new Inventory());
 
         inventory.setProduct(savedProduct);
         inventory.setStock(productRequest.getStock());
         inventory.setReservedStock(16);
         inventory.setLastUpdated(LocalDateTime.now());
 
-// Nếu tồn kho mới thì tạo mới, còn nếu đã có thì cập nhật
         if (inventory.getId() == null) {
             inventoryRepository.save(inventory);
         } else {
@@ -128,22 +118,18 @@ public class ProductServiceImpl implements ProductService {
         }
 
 
-        // Trả về ProductResponse
         return mapToProductResponse(savedProduct);
     }
 
-    // Sửa thông tin sản phẩm
     public ProductResponse updateProduct(Integer productId, ProductRequest productRequest) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new AppException("Product not found"));
 
-        // Update thông tin sản phẩm
         product.setName(productRequest.getName());
         product.setPrice(productRequest.getPrice());
         product.setDescription(productRequest.getDescription());
         product.setStock(productRequest.getStock());
 
-        // Update các thuộc tính khác như Category, Brand, Size, Color
         product.setCategory(categoryRepository.findById(productRequest.getCategoryId())
                 .orElseThrow(() -> new AppException("Category not found")));
         product.setBrand(brandRepository.findById(productRequest.getBrandId())
@@ -153,7 +139,6 @@ public class ProductServiceImpl implements ProductService {
         product.setColor(colorRepository.findById(productRequest.getColorId())
                 .orElseThrow(() -> new AppException("Color not found")));
 
-        // Cập nhật hình ảnh sản phẩm
         productImageRepository.deleteByProductId(productId); // Xóa ảnh cũ trước khi thêm mới
         if (productRequest.getImageIds() != null && !productRequest.getImageIds().isEmpty()) {
             for (Integer imageUrl : productRequest.getImageIds()) {
@@ -215,7 +200,6 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
-    // Lấy sản phẩm theo ID
     public ProductResponse getProductById(Integer productId) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new AppException("Product not found"));
@@ -232,7 +216,6 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
-    // Tìm kiếm sản phẩm theo màu sắc
     public List<ProductSearchResponse> searchByColor(String color) {
         List<Product> products = productRepository.findByColor_ColorIgnoreCase(color);
         if(products.isEmpty()){
@@ -243,7 +226,6 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
-    // Tìm kiếm sản phẩm theo thương hiệu
     public List<ProductSearchResponse> searchByBrand(String brand) {
         List<Product> products = productRepository.findByBrand_NameIgnoreCase(brand);
         if(products.isEmpty()){
@@ -254,7 +236,6 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
-    // Tìm kiếm sản phẩm theo danh mục
     public List<ProductSearchResponse> searchByCategory(String category) {
         List<Product> products = productRepository.findByCategory_NameIgnoreCase(category);
         if(products.isEmpty()){

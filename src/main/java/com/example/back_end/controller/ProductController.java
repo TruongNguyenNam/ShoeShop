@@ -3,7 +3,7 @@ package com.example.back_end.controller;
 import com.example.back_end.dto.admin.request.ProductRequest;
 import com.example.back_end.dto.admin.response.ProductResponse;
 import com.example.back_end.dto.admin.response.ProductSearchResponse;
-import com.example.back_end.service.admin.ProductService;
+import com.example.back_end.service.admin.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +29,6 @@ public class ProductController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    // Cập nhật thông tin sản phẩm
     @PutMapping("/{productId}")
     public ResponseEntity<ProductResponse> updateProduct(
             @PathVariable Integer productId,
@@ -38,7 +37,6 @@ public class ProductController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    // Xóa sản phẩm
     @DeleteMapping("/{productId}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Integer productId) {
         productService.deleteProduct(productId);
@@ -46,13 +44,11 @@ public class ProductController {
     }
 
     @GetMapping
-    // Lấy tất cả sản phẩm
     public ResponseEntity<List<ProductResponse>> getAllProducts() {
         List<ProductResponse> response = productService.getAllProducts();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
     @GetMapping("/{productId}")
-    // Lấy sản phẩm theo ID
     public ResponseEntity<ProductResponse> getProductById(@PathVariable Integer productId) {
         ProductResponse response = productService.getProductById(productId);
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -62,29 +58,24 @@ public class ProductController {
     public ResponseEntity<List<ProductSearchResponse>> searchByName(@RequestParam String name) {
         List<ProductSearchResponse> response = productService.searchByName(name);
         return new ResponseEntity<>(response, HttpStatus.OK);
-      //  return productService.searchByName(name);
     }
 
-    // Tìm kiếm sản phẩm theo màu sắc
     @GetMapping("/search/color")
     public ResponseEntity<List<ProductSearchResponse>> searchByColor(@RequestParam(name = "color") String color) {
         List<ProductSearchResponse> response = productService.searchByColor(color);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
     @GetMapping("/search/brand")
-    // Tìm kiếm sản phẩm theo thương hiệu
     public ResponseEntity<List<ProductSearchResponse> > searchByBrand(@RequestParam String brand) {
         List<ProductSearchResponse> response = productService.searchByBrand(brand);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
     @GetMapping("/search/category")
-    // Tìm kiếm sản phẩm theo danh mục
     public ResponseEntity<List<ProductSearchResponse>> searchByCategory(@RequestParam String category) {
         List<ProductSearchResponse> response = productService.searchByCategory(category);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    // Tìm kiếm sản phẩm theo khoảng giá
     @GetMapping("/search/price")
     public ResponseEntity<List<ProductSearchResponse>> searchByPriceRange(
             @RequestParam Double minPrice,
@@ -93,26 +84,5 @@ public class ProductController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-
-
-    //    @GetMapping("/search")
-//    public List<ProductSearchResponse> searchProducts(@RequestBody ProductSearchRequest request) {
-//        // Gọi các phương thức tìm kiếm dựa trên các tham số trong request
-//        if (request.getName() != null) {
-//            return productService.searchByName(request.getName());
-//        } else if (request.getColor() != null) {
-//            return productService.searchByColor(request.getColor());
-//        } else if (request.getBrand() != null) {
-//            return productService.searchByBrand(request.getBrand());
-//        } else if (request.getCategory() != null) {
-//            return productService.searchByCategory(request.getCategory());
-//        } else if (request.getMinPrice() != null) {
-//            return productService.searchByMinPrice(request.getMinPrice());
-//        } else if (request.getMaxPrice() != null) {
-//            return productService.searchByMaxPrice(request.getMaxPrice());
-//        } else {
-//            return List.of(); // Trả về danh sách rỗng nếu không có tiêu chí tìm kiếm
-//        }
-//    }
 
 }

@@ -1,7 +1,7 @@
 package com.example.back_end.controller;
 
 import com.example.back_end.dto.admin.response.SupplierResponse;
-import com.example.back_end.service.admin.SupplierService;
+import com.example.back_end.service.admin.supplier.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

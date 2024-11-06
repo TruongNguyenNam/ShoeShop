@@ -40,7 +40,6 @@ public class OrderHistoryServiceImpl implements OrderHistoryService{
         return orderHistoryResponses;
     }
 
-    // Phương thức riêng để map từ Order sang OrderHistoryResponse
     private OrderHistoryResponse mapToOrderHistoryResponse(Order order) {
         OrderHistoryResponse response = new OrderHistoryResponse();
         response.setOrderId(order.getId());

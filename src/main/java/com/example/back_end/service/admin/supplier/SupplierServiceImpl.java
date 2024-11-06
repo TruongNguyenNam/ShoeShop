@@ -1,4 +1,4 @@
-package com.example.back_end.service.admin;
+package com.example.back_end.service.admin.supplier;
 
 import com.example.back_end.dto.admin.response.SupplierResponse;
 import com.example.back_end.entity.Supplier;

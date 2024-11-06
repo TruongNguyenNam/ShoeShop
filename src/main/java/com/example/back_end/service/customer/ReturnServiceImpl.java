@@ -58,7 +58,6 @@ public class ReturnServiceImpl implements ReturnService{
         returnOrder.setStatus(Return.ReturnStatus.PENDING);
         returnRepository.save(returnOrder);
 
-        // Danh sách trả hàng
         List<ReturnDetail> returnDetails = new ArrayList<>();
 
         // Lặp qua các sản phẩm trong yêu cầu trả hàng

@@ -1,4 +1,4 @@
-package com.example.back_end.service.admin;
+package com.example.back_end.service.admin.image;
 
 import com.example.back_end.dto.admin.response.ProductImageResponse;
 import com.example.back_end.entity.Product;

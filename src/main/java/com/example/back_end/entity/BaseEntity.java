@@ -18,23 +18,19 @@ import java.time.LocalDateTime;
 @Setter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class BaseEntity { //bố
+public abstract class BaseEntity {
     @CreatedBy
-   // @Column(nullable = false, updatable = false)
     protected Integer createdBy;
 
     @CreatedDate
-    //@Column(nullable = false, updatable = false)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @JsonFormat(pattern = "MM/dd/yyyy")
     protected LocalDateTime createdDate;
 
     @LastModifiedBy
-    //@Column(nullable = false)
     protected Integer lastModifiedBy;
 
     @LastModifiedDate
-   // @Column(nullable = false)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @JsonFormat(pattern = "MM/dd/yyyy")
     protected LocalDateTime lastModifiedDate;

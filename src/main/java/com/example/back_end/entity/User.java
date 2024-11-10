@@ -57,7 +57,6 @@ public class User extends BaseEntity{
     @Getter
     public enum Role {
         ADMIN,
-        CUSTOMER,
-        EMPLOYEE
+        CUSTOMER
     }
 }

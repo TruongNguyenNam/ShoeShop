@@ -15,14 +15,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/admin/category")
 public class CategoryController {
-
     private final CategoryService categoryService;
-
     @Autowired
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
-
     @PostMapping
     public ResponseEntity<CategoryResponse> createCategory(@RequestBody CategoryRequest categoryRequest) {
         CategoryResponse createdCategory = categoryService.saveOrUpdateCategory(null, categoryRequest);
@@ -42,7 +39,6 @@ public class CategoryController {
         categoryService.deleteCategory(categoryId);
         return ResponseEntity.noContent().build();
     }
-
     @GetMapping("/{categoryId}")
     public ResponseEntity<CategoryResponse> getCategoryById(@PathVariable Integer categoryId) {
         CategoryResponse categoryResponse = categoryService.getCategoryById(categoryId);
